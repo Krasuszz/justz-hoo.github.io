@@ -1,12 +1,11 @@
 *{
     margin: 0;
     padding: 0;
+    transition:all .15s ease;
+    scroll-behavior: smooth;
 }
 
-a{
-    text-decoration: none;
-}
-
+/* fonts */
 @font-face {
     font-family: 'iconfont';
     src: url('fonts/webfont_7wq0s9p0p0g/webfont.eot'); /* IE9 */
@@ -16,10 +15,71 @@ a{
     url('fonts/webfont_7wq0s9p0p0g/webfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
     url('fonts/webfont_7wq0s9p0p0g/webfont.svg#webfont') format('svg'); /* iOS 4.1- */
 }
+/* animations */
+@keyframes appear{
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+}
+
+
+/*************************
+class  pre-define here
+*************************/
+
+/* class: a */
+a{
+    text-decoration: none;
+    list-style: none;
+}
+
+/* class: section */
+section{
+    margin: 0 auto;
+}
+
+/* class: block_title */
+.block_title{
+    color: white;
+    text-shadow: 2px 2px 5px #e6ba50;
+    display: flex;
+    align-items: center;
+    width: 15%;
+    justify-content: center;
+    font-size: 36px;
+}
+
+/* class: cute_button */
+.cute_button{
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 50px;
+    padding-left: 0px;
+    color: #FFFFFF;
+    font-size: 17px;
+    font-weight: bold;
+    border-radius: 25px 25px;
+    border: solid 2px white;
+}
+.cute_button a{
+    color: white;
+    font-weight: bold;
+}
+.cute_button:hover a{
+    transform: scale(1.1);
+}
+
+
+/*************************
+page elements starts here
+*************************/
 
 #sidebar{
     width: 100%;
     position: fixed;
+    z-index:99;
 }
 .sidebar{
     /*position: fixed;*/
@@ -57,12 +117,13 @@ a{
 }
 
 .main{
-    width: 100%;
+    background-image: url(images/About_us.jpg);
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
     height: 768px;
     overflow: hidden;
+    animation: appear 5s 1;
 }
 
 .main h1{
@@ -72,6 +133,7 @@ a{
     text-align: center;
     text-shadow: 1px 1px 5px #666666;
     margin-top: 13%;
+    width: auto;
 }
 
 .main p{
@@ -93,13 +155,69 @@ a{
     margin-top: 20px;
 }
 
-section{
-    margin: 0 auto;
+
+/*#intro{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #ebcd6f;
+    height: 800px;
+    margin: 0;
+    padding: 30px 0;
+    box-sizing: border-box;
+}*/
+.company_intro{
+    width: 100%;
+    height: 800px;
+    background-color: #ebcd6f;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+#intro > h1{
+    color: white;
+    text-shadow: 2px 2px 5px #e6ba50;
+    display: flex;
+    align-items: center;
+    width: 15%;
+    justify-content: center;
+    font-size: 36px;
+}
+
+.company_intro .introduction{
+	box-sizing: border-box;
+	/*border: solid 1px;*/
+	width: 75%;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+}
+.company_intro .cute_button{
+	margin-top: 30px;
+	padding-right: 0px;
+	margin-right: 80px;
+}
+.company_intro > div > p{
+    box-sizing: border-box;
+    /*border: solid 1px;*/
+    color: white;
+    font-size: 36px;
+    letter-spacing: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*width: 900px;*/
 }
 
 
-#plans{
-    width: 100%;
+
+
+/*#plans{
     display: flex;
     justify-content: space-evenly;
     background-color: #eed67e;
@@ -107,20 +225,33 @@ section{
     margin: 0;
     padding: 30px 0;
     box-sizing: border-box;
+}*/
+.travel_plans{
+    width: 100%;
+    height: 800px;
+    background-color: #eed67e;
+    margin: 0;
+    padding: 30px 0;
+    display: flex;
+    justify-content: space-evenly;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
 }
-
-#plans h1{
+.travel_plans h1{
     color: white;
     text-shadow: 2px 2px 5px #e6ba50;
     font-size: 36px;
+    height: auto;
 }
 
-#plans .left{
+.left{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 15%;
+    /*width: 15%;*/
 }
 
 #plans .more{
@@ -142,20 +273,15 @@ section{
     height: 50px;
 }
 
-#plans .more div a{
-    text-decoration: none;
-    list-style: none;
-    color: white;
-    font-weight: bold;
-}
 
 #plans .card{
-    width: 75%;
+    /*width: 75%;*/
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-content: space-around;
     justify-content: space-around;
+    /* [disabled]align-items: center; */
 }
 
 #plans .travel-entry{
@@ -164,6 +290,14 @@ section{
     background-color: #ffffff;
 }
 
+#plans .travel-entry:hover{
+    transform: scale(1.025);
+    transform-origin: center;
+
+}
+#plans .travel-entry:hover .text h3 .heading{
+    color: #D2772D;
+}
 /*图片样式*/
 #plans .travel-entry .img{
     display: block;
@@ -223,86 +357,26 @@ section{
     font-size: 18px;
 }
 
-.intro{
-    width: 100%;
-    height: 500px;
-    background-color: #ebcd6f;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.intro > h1{
-    color: white;
-    text-shadow: 2px 2px 5px #e6ba50;
-    display: flex;
-    align-items: center;
-    width: 15%;
-    justify-content: center;
-    font-size: 36px;
-}
-
-.intro > div{
-    box-sizing: border-box;
-    /*border: solid 1px;*/
-    width: 75%;
-    display: flex;
-    flex-direction: column;
-    align-items: end;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-}
-.intro > div > p{
-    box-sizing: border-box;
-    /*border: solid 1px;*/
-    color: white;
-    font-size: 36px;
-    letter-spacing: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 900px;
-}
-
-.intro  ul{
-    box-sizing: border-box;
-    margin-right: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    height: 50px;
-    text-decoration: none;
-    list-style: none;
-    border-radius: 25px 25px;
-    border: solid 2px white;
-}
-
-.intro a{
-    box-sizing: border-box;
-    width: 100px;
-    height: 50px;
-    padding-left: 2px;
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-}
-
 .contact_block{
     background-color: #f1df8e;
 }
-
-#three .contact_block{
+.contact_block{
+    width: 100%;
+    height: 600px;
+    background-color: #f1df8e;
     margin: 0;
     padding: 0;
     display: flex;
-    flex-direction: row;
     justify-content: space-evenly;
-    height: 600px;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    flex-direction: column;
+	flex-direction: row;
+    align-items: center;
 }
 
 
+/*
 .contact_block .left{
     display: flex;
     flex-direction: column;
@@ -310,14 +384,16 @@ section{
     height: 100%;
     width: 15%;
 }
+*/
 .contact_block .left h2{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ad7c35;
-    text-shadow: 1px 1px 2px #e8c45f;     /*e6ba50*/
-    font-size: 36px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #ad7c35;
+	text-shadow: 1px 1px 2px #e8c45f;     /*e6ba50*/
+	font-size: 36px;
+	height: auto;
 }
 
 .contact_block .left p{
@@ -331,7 +407,7 @@ section{
     font-size: 18px;
 }
 
-.contact_block .split_style1{
+.split_style1{
     display: flex;
     flex-direction: row;
     width: 75%;
@@ -362,7 +438,7 @@ section form .fields {
     justify-content: space-evenly;
 }
 
-section form .actions {
+section form .cute_button {
     margin-top: 36px;
     box-sizing: border-box;
     display: flex;
@@ -375,7 +451,7 @@ section form .actions {
     flex-direction: column;
 }
 
-section form .actions a{
+section form .cute_button a{
     margin-left: 3px;
     color: #ad7c35;
     font-weight: bold;
@@ -419,6 +495,7 @@ section form .actions a{
     width: 80%;
     height: 80%;
     border: 2px solid #897436;
+	resize: none
 }
 
 /*@TODO:this*/
@@ -524,3 +601,64 @@ section form .actions a{
             .split_style1 section:nth-of-type(2) .contact > li:nth-last-of-type(1) ul li:nth-of-type(3) a:hover{
                 color: #1296db;
             }
+
+
+@media (min-width: 1424px) {
+    .left{
+        width: 15%;
+    }
+    .card, .introduction{
+        width: 75%;
+    }
+    .travel_plans{
+        height: 800px;
+
+     }
+    .contact_block{
+        height: 600px;
+    }
+	.split_style1{
+    	height: 100%;
+	}
+}
+@media (min-width: 955px) and (max-width: 1424px){
+    /*#plans,#intro,#three{*/
+    /*    flex-direction: row;*/
+    /*}*/
+    .left{
+        width: 15%;
+    }
+    .card, .introduction{
+        width: 75%;
+    }
+    .travel_plans{
+        height: 1200px;
+    }
+    .contact_block{
+        height: 800px;
+    }
+	.split_style1{
+    	height: 80%;
+	}
+}
+
+@media (max-width: 955px){
+    /*#plans,#intro,#three{*/
+    /*    flex-direction: column;*/
+    /*}*/
+    .left{
+        width: 100%;
+    }
+    .card, .introduction{
+        width: 100%;
+    }
+    .travel_plans{
+        height: 2600px;
+    }
+	.contact_block{
+        height: 800px;
+    }
+	.split_style1{
+    	height: 80%;
+	}
+}
