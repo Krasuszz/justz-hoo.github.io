@@ -198,9 +198,9 @@ page elements starts here
 	justify-content: space-evenly;
 }
 .company_intro .cute_button{
-	margin-top: 30px;
+	margin-top: 50px;
 	padding-right: 0px;
-	margin-right: 80px;
+	margin-right: 0px;
 }
 .company_intro > div > p{
     box-sizing: border-box;
